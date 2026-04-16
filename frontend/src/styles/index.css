@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-gray-950 text-gray-100;
+    font-family: 'Inter', sans-serif;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-gray-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-gray-700 rounded-full; }
+}
+
+@layer components {
+  .card {
+    @apply bg-gray-900 border border-gray-800 rounded-xl p-5;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium;
+  }
+  .btn-primary {
+    @apply bg-brand-500 hover:bg-brand-400 text-gray-950 font-semibold px-5 py-2.5 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .agent-tag {
+    @apply font-mono text-xs px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-brand-300;
+  }
+}
+
+/* Pulse animation for active agents */
+@keyframes pulse-brand {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.animate-pulse-brand {
+  animation: pulse-brand 1.5s ease-in-out infinite;
+}
+
+/* Table styling */
+.study-table th {
+  @apply bg-gray-800 text-brand-300 font-mono text-xs uppercase tracking-wider px-4 py-3 text-left;
+}
+.study-table td {
+  @apply px-4 py-3 text-sm text-gray-300 border-b border-gray-800/60;
+}
+.study-table tr:hover td {
+  @apply bg-gray-800/40;
+}
